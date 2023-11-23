@@ -20,3 +20,4 @@ SELECT s.Articulo
 FROM vwCOELSerieLoteMov s
 JOIN Art a ON s.Articulo=a.Articulo
 GROUP BY s.Articulo,a.Descripcion1,s.Almacen,s.SerieLote,s.Empresa,s.sucursal
+HAVING SUM(s.Existencia) > 0
