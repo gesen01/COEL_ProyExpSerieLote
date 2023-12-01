@@ -15,9 +15,9 @@ SELECT s.Articulo
        ,s.Almacen
        ,s.SerieLote
        ,SUM(s.Existencia) AS 'Existencia'
-       ,s.Empresa
-       ,s.sucursal
+       ,s.Empresa AS 'Empresas'
+       ,s.sucursal AS 'Sucursales'
 FROM vwCOELSerieLoteMov s
 JOIN Art a ON s.Articulo=a.Articulo
+WHERE s.almacen LIKE '%MERC'
 GROUP BY s.Articulo,a.Descripcion1,s.Almacen,s.SerieLote,s.Empresa,s.sucursal
-HAVING SUM(s.Existencia) > 0
